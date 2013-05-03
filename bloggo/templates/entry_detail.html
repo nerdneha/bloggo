@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+This is my blog post:
+
+date: {{ entry.date }}
+
+<p>
+{{ entry.text }}
+</p>
+
+
+{% endblock %}

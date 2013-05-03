@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+these are my blog posts:
+
+<ul>
+{% for entry in entries %}
+<li>
+    <a href="{{ entry.get_absolute_url }}">
+        date: {{ entry.date }}
+        <p>
+            {{ entry.text }}
+        </p>
+    <a/>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

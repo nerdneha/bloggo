@@ -1,7 +1,12 @@
 # Django settings for bloggo project.
 
+import os
+
+SITE_ROOT = os.path.abspath(os.path.dirname(__file__))
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -11,8 +16,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'bloggo.sqlite',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -107,12 +112,17 @@ ROOT_URLCONF = 'bloggo.urls'
 WSGI_APPLICATION = 'bloggo.wsgi.application'
 
 TEMPLATE_DIRS = (
+    # /home/nehalita/bloggo/bloggo/templates
+    os.path.join(SITE_ROOT, 'templates')
+
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
 
 INSTALLED_APPS = (
+    'bloggo.blog',
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
