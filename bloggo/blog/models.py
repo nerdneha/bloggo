@@ -9,4 +9,4 @@ class Entry(models.Model):
     title = models.CharField(max_length=100, unique=True)
 
     def get_absolute_url(self):
-        return reverse('bloggo.blog.views.entry_detail', args=[str(self.id)])
+        return reverse('bloggo.blog.views.view_entry', args=[str(self.id)])

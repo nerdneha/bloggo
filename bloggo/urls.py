@@ -12,9 +12,9 @@ urlpatterns = patterns('',
     # r"hello.*" -> is a raw string literal, used for a regex
     # etc
      url(r'^$', 'bloggo.blog.views.hello_world', name='hello'),
-     url(r'^blah$', 'bloggo.blog.views.froogle', name='blah'),
+     url(r'^recent$', 'bloggo.blog.views.recent_list', name='recent_list'),
      url(r'^entry$', 'bloggo.blog.views.entry_list', name='entry_list'),
-     url(r'^entry/(\d)+$', 'bloggo.blog.views.entry_detail', name='entry_detail'),
+     url(r'^entry/(\d)+$', 'bloggo.blog.views.view_entry', name='view_entry'),
     # url(r'^bloggo/', include('bloggo.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
