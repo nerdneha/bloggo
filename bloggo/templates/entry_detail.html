@@ -3,12 +3,12 @@
 
 {% block content %}
 
-This is my blog post:
-
-date: {{ entry.date }}
+{{ entry.title }}
+<br>
+Date: {{ entry.post_date }}
 
 <p>
-{{ entry.text }}
+{{ entry.body }}
 </p>
 
 

@@ -19,17 +19,6 @@ class SimpleTest(TestCase):
         self.assertEqual(1 + 1, 2)
 
 class BlogTest(TestCase):
-    # def test_view_list(self):
-    #     """
-    #     Tests that 1 + 1 always equals 2.
-    #     """
-    #     entries = [Entry(text="Hello World!"),
-    #             Entry(text="Hello Neha!"),]
-    #     for entry in entries:
-    #         entry.save()
-
-    #     self.assertEqual(1 + 1, 3)A
-
     def test_list(self):
         client = Client()
         response = client.get('/entry')
