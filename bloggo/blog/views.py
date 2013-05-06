@@ -2,9 +2,8 @@
 
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
-from blogger.blog.models import Entry
+from bloggo.blog.models import Entry
 
-from models import Entry
 
 def hello_world(request):
     return HttpResponse("Hello world!")

@@ -3,20 +3,25 @@
 
 {% block content %}
 
-these are my blog posts:
-
-<ul>
-{% for entry in entries %}
-<li>
-    <a href="{{ entry.get_absolute_url }}">
-        {{ entry.title}} </a>
-        ({{ entry.post_date }})
-        <p>
-            {{ entry.body }}
-        </p>
-    <a/>
-    </li>
-{% endfor %}
-</ul>
+Welcome to my blog! Here's a previous of my most recent blog posts:
+<br>
+<br>
+{% if recent_entries %}
+    <ul>
+    {% for entry in recent_entries %}
+    <li>
+        <a href="{{ entry.get_absolute_url }}">
+            {{ entry.title}}</a>
+            ({{ entry.post_date }})
+            <p>
+                {{ entry.body }}
+            </p>
+        <a/>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>I don't have any yet :/</p>
+{% endif %}
 
 {% endblock %}

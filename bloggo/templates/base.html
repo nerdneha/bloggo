@@ -1,19 +1,46 @@
 <!DOCTYPE html>
+{% load staticfiles %}
+
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="{% static "css/foundation.css" %}" />
     <title>{% block title %}Neha's Django Blog{% endblock %}</title>
 </head>
 
 <body>
-    <div id="sidebar">
-        {% block sidebar %}
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/entry">Blog</a></li>
+    <nav class="top-bar">
+        <ul class="title-area">
+            <li class="name">
+                <h1><a href="/recent">Neha's Blog</a></h1>
+            </li>
+            <li class="toggle-topbar menu-icon">
+                <a href="#"><span>Menu</span></a>
+            </li>
         </ul>
-        {% endblock %}
-    </div>
+        <section class="top-bar-section">
+            <ul class="left">
+                <li class="divider"></li>
+                
+                <li class="active">
+                    <a href="/entry">All Posts</a>
+                </li>
+                <li class="divider"></li>
+
+                <li>
+                    <a href="/entry/1">My First Post!</a>
+                </li>
+                <li class="divider"></li>
+
+            </ul>
+            <ul class="right">
+                <li class="has-form">
+                    <a class="button" href="mailto:nehalita@gmail.com">Email Me!</a>
+                </li>
+            </ul>
+
+        </section>
+    </nav>
+
 
     <div id="content">
         {% block content %}{% endblock %}

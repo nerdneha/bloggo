@@ -3,13 +3,15 @@
 
 {% block content %}
 
-{{ entry.title }}
-<br>
-Date: {{ entry.post_date }}
-
+<h2>{{ entry.title }}</h2>
 <p>
 {{ entry.body }}
 </p>
 
+<br>
+<br>
+<p>
+    <i>Posted: {{ entry.post_date }}</i>
+</p>
 
 {% endblock %}
