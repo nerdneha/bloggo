@@ -3,7 +3,7 @@
 
 {% block front-content %}
 
-<div class="main">
+<div class="row">
     <!-- entries  -->
     <ul>
         {% for entry in entries.object_list %}
@@ -15,25 +15,26 @@
         {% endfor %}
     </ul>
 
-    <!-- Next/Prev page links  -->
-    {% if entries.object_list and entries.paginator.num_pages > 1 %}
-    <div class="pagination" style="margin-top: 20px; margin-left: -20px; ">
-        <span class="step-links">
-            {% if entries.has_previous %}
-                <a href= "?page={{ entries.previous_page_number }}">newer entries &lt;&lt; </a>
-            {% endif %}
-
-            <span class="current">
-                &nbsp;Page {{ entries.number }} of {{ entries.paginator.num_pages }}
-            </span>
-
-            {% if entries.has_next %}
-                <a href="?page={{ entries.next_page_number }}"> &gt;&gt; older entries</a>
-            {% endif %}
-        </span>
-    </div>
-    {% endif %}
-
 </div>
+
+<div class="row">
+    {% if entries.object_list and entries.paginator.num_pages > 1 %}
+    <ul class="pagination">
+        {% if entries.has_previous %}
+            <li class="arrow"><a href="?page={{ entries.previous_page_number }}">&laquo;</a></li>
+        {% else %}
+            <li class="arrow unavailable"><a href="?page={{ entries.previous_page_number }}">&laquo;</a></li>
+        {% endif %}
+
+        <li class="current"> Page {{ entries.number }} of {{ entries.paginator.num_pages }} </li>
+
+        {% if entries.has_next %}
+            <li class="arrow"><a href="?page={{ entries.next_page_number }}">&raquo;</a></li>
+        {% else %}
+            <li class="arrow unavailable"><a href="?page={{ entries.next_page_number }}">&raquo;</a></li>
+        {% endif %}
+    {% endif %}
+</div>
+
 
 {% endblock %}
