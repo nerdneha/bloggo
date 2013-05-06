@@ -11,8 +11,7 @@ urlpatterns = patterns('',
     # "hello" -> is a string literal
     # r"hello.*" -> is a raw string literal, used for a regex
     # etc
-     url(r'^$', 'bloggo.blog.views.hello_world', name='hello'),
-     url(r'^recent$', 'bloggo.blog.views.recent_list', name='recent_list'),
+     url(r'^$', 'bloggo.blog.views.front_page', name='front_page'),
      url(r'^entry$', 'bloggo.blog.views.entry_list', name='entry_list'),
      url(r'^entry/(\d)+$', 'bloggo.blog.views.view_entry', name='view_entry'),
     # url(r'^bloggo/', include('bloggo.foo.urls')),
