@@ -10,7 +10,10 @@ TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
-)
+    )
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'login/'
 
 MANAGERS = ADMINS
 

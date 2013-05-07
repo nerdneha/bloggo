@@ -3,24 +3,25 @@
 
 {% block content %}
 
-<h2>Check out all of my blog posts below!</h2>
-
-{% if entries %}
+<div class="row">
+    <h1> All of the entries </h1>
+</div>
+    <!-- entries  -->
     <ul>
     {% for entry in entries %}
-    <li>
-        <a href="{{ entry.get_absolute_url }}">
-            {{ entry.title }}</a>
-            ({{ entry.post_date }})
-            <p>
-                {{ entry.body }}
-            </p>
-        <a/>
-        </li>
+    <div class="row">
+        <div class="title"><a href="{{ entry.get_absolute_url }}"> {{ entry.title }}</a></div>
+    </div>
+        <ul>
+            <div class="row">
+                <i> <div class="time">{{ entry.post_date }}</div> </i>
+            </div>
+            <div class="row">
+                <div class="body">{{ entry.body|linebreaks }}</div>
+            </div>
+        </ul>
     {% endfor %}
     </ul>
-{% else %}
-    <p>I don't have any yet :/</p>
-{% endif %}
+
 
 {% endblock %}

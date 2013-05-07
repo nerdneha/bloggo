@@ -6,10 +6,10 @@
 <div class="row">
     <!-- entries  -->
     <ul>
-        {% for entry in entries.object_list %}
+        {% for entry in entries %}
             <div class="title"><a href="{{ entry.get_absolute_url }}"> {{ entry.title }}</a></div>
             <ul>
-                <div class="time">{{ entry.post_date }}</div>
+                <i><div class="time">{{ entry.post_date }}</div></i>
                 <div class="body">{{ entry.body|linebreaks }}</div>
             </ul>
         {% endfor %}

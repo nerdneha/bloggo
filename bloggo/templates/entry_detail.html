@@ -3,15 +3,22 @@
 
 {% block content %}
 
+<div class="row">
+
 <h2>{{ entry.title }}</h2>
+</div>
+<div class="row">
 <p>
 {{ entry.body }}
 </p>
+</div>
 
 <br>
 <br>
+<div class="row">
 <p>
     <i>Posted: {{ entry.post_date }}</i>
 </p>
+</div>
 
 {% endblock %}

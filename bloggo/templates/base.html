@@ -21,7 +21,7 @@
             <ul class="left">
                 <li class="divider"></li>
                 
-                <li class="active">
+                <li class>
                     <a href="/entry">All Posts</a>
                 </li>
                 <li class="divider"></li>
@@ -38,9 +38,20 @@
 
             </ul>
             <ul class="right">
-                <li class="has-form">
-                    <a class="button" href="mailto:nehalita@gmail.com">Email Me!</a>
+                <li class="divider show-for-medium-and-up"></li>
+                {% if request.user.is_authenticated %}
+                <li class>
+                    <a href="#">You are logged in as {{ request.user.username }}</a>
                 </li>
+                <li class="divider show-for-medium-and-up"></li>
+                <li class="has-form">
+                    <a class="button" href="/logout">Logout</a>
+                </li>
+                {% else %}
+                <li class="has-form">
+                    <a class="button" href="/login">Login!</a>
+                </li>
+                {% endif %}
             </ul>
 
         </section>
