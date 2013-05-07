@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<a href="#" id="myModalButton" class="button">Click Me To Add Your Post</a>
+
+<div id="myModal" class="reveal-modal">
+    <form>
+    <fieldset>
+        <legend>New Blog Post</legend>
+        <div class="row">
+          <div class="large-12 columns">
+            <label>Title</label>
+            <input type="text">
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <label>Body</label>
+            <textarea></textarea>
+          </div>
+        </div>
+    </fieldset>
+    </form>
+  <a class="close-reveal-modal" id="closeModal">&#215;</a>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#myModalButton").click(function() {
+          $('#myModal').foundation('reveal', 'open');
+          });
+      $("#closeModal").click(function() {
+          $('#myModal').foundation('reveal', 'close');
+    });
+  });
+</script>
+
+
+{% endblock %}
+

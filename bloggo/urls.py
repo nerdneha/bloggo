@@ -9,6 +9,7 @@ urlpatterns = patterns('',
      url(r'^entry/(\d)+$', 'bloggo.blog.views.view_entry', name='view_entry'),
      url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
      url(r'^logout/$', 'django.contrib.auth.views.logout'),
+     url(r'^add/$', 'bloggo.blog.views.add_entry', name='add'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     #url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

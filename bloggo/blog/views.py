@@ -29,3 +29,5 @@ def view_entry(request, entry_id):
     entry = get_object_or_404(Entry,pk=entry_id)
     return render(request, "entry_detail.html", locals())
 
+def add_entry(request):
+    return render(request, "add_entry.html", locals())

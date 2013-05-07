@@ -4,6 +4,10 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{% static "css/foundation.css" %}" />
+    <script src="{% static "js/vendor/jquery.js" %}"></script>
+    <script src="{% static "js/foundation/foundation.js" %}"></script>
+    <script src="{% static "js/foundation/foundation.reveal.js" %}"></script> 
+
     <title>{% block title %}Neha's Django Blog{% endblock %}</title>
 </head>
 
@@ -32,9 +36,16 @@
                 <li class="divider"></li>
 
                 <li>
-                    <a href="/admin">Admin Only</a>
+                    <a href="/admin">Admin Tools</a>
                 </li>
                 <li class="divider"></li>
+
+                {% if request.user.is_authenticated %}
+                    <li>
+                        <a href="#" class="button" id="addPost">Add a blog post</a>
+                    </li>
+                    <li class="divider"></li>
+                {% endif %}
 
             </ul>
             <ul class="right">
@@ -61,5 +72,36 @@
     <div id="content">
         {% block content %}{% endblock %}
     </div>
+    <div id="postForm" class="reveal-modal">
+        <form>
+        <fieldset>
+            <legend>New Blog Post</legend>
+            <div class="row">
+              <div class="large-12 columns">
+                <label>Title</label>
+                <input type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-12 columns">
+                <label>Body</label>
+                <textarea></textarea>
+              </div>
+            </div>
+        </fieldset>
+        </form>
+      <a class="close-reveal-modal" id="closeModal">&#215;</a>
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+          $("#addPost").click(function() {
+              $('#postForm').foundation('reveal', 'open');
+              });
+          $("#closeModal").click(function() {
+              $('#postForm').foundation('reveal', 'close');
+        });
+      });
+    </script>
 </body>
 </html>
