@@ -29,7 +29,6 @@ def entry_list(request):
     return render(request, "entry_list.html", locals())
 
 def view_entry(request, entry_id):
-    print entry_id
     entry = get_object_or_404(Entry,pk=entry_id)
     return render(request, "entry_detail.html", locals())
 
@@ -40,7 +39,7 @@ def add_entry(request):
             cd = form.cleaned_data
             title = cd['title']
             body = cd['body']
-: :           entry_obj = Entry(title=title, body=body)
+            entry_obj = Entry(title=title, body=body)
             entry_obj.save()
             return HttpResponseRedirect("/")
     else:
