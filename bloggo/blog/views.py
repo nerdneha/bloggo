@@ -29,6 +29,7 @@ def entry_list(request):
     return render(request, "entry_list.html", locals())
 
 def view_entry(request, entry_id):
+    print entry_id
     entry = get_object_or_404(Entry,pk=entry_id)
     return render(request, "entry_detail.html", locals())
 

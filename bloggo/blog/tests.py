@@ -26,7 +26,7 @@ class BlogTest(TestCase):
 
     def test_existing_id(self):
         client = Client()
-        entry = Entry(text="Hello World!")
+        entry = Entry(title="Hello World!", body="Test Suite action!")
         entry.save()
         pk = entry.id
         response = client.get('/entry/' + str(pk))
