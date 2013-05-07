@@ -5,21 +5,15 @@
 
 <a href="#" id="myModalButton" class="button">Click Me To Add Your Post</a>
 
+
 <div id="myModal" class="reveal-modal">
-    <form>
+    <form action="" method="post">
     <fieldset>
         <legend>New Blog Post</legend>
+        {{ form.as_table }}
+        {% csrf_token %}
         <div class="row">
-          <div class="large-12 columns">
-            <label>Title</label>
-            <input type="text">
-          </div>
-        </div>
-        <div class="row">
-          <div class="large-12 columns">
-            <label>Body</label>
-            <textarea></textarea>
-          </div>
+            <input class="button" type="submit">
         </div>
     </fieldset>
     </form>

@@ -6,10 +6,13 @@ from bloggo.blog.models import Entry
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login
+from bloggo.blog.forms import AddPostForm
+from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
 
 def front_page(request):
     entries = Entry.objects.all().order_by("-post_date")
-    paginator = Paginator(entries,2)
+    paginator = Paginator(entries,5)
 
     try: page = int(request.GET.get("page", '1'))
     except ValueError: page = 1
@@ -30,4 +33,15 @@ def view_entry(request, entry_id):
     return render(request, "entry_detail.html", locals())
 
 def add_entry(request):
-    return render(request, "add_entry.html", locals())
+    if request.method == 'POST':
+        form = AddPostForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            title = cd['title']
+            body = cd['body']
+            entry_obj = Entry(title=title, body=body)
+            entry_obj.save()
+            return HttpResponseRedirect("/")
+    else:
+        form = AddPostForm()
+    return render(request, 'add_entry.html', locals())

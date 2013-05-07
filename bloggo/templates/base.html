@@ -42,7 +42,7 @@
 
                 {% if request.user.is_authenticated %}
                     <li>
-                        <a href="#" class="button" id="addPost">Add a blog post</a>
+                        <a href="/add" class="button" id="addPost">Add a blog post</a>
                     </li>
                     <li class="divider"></li>
                 {% endif %}
@@ -93,15 +93,5 @@
       <a class="close-reveal-modal" id="closeModal">&#215;</a>
     </div>
 
-    <script type="text/javascript">
-      $(document).ready(function() {
-          $("#addPost").click(function() {
-              $('#postForm').foundation('reveal', 'open');
-              });
-          $("#closeModal").click(function() {
-              $('#postForm').foundation('reveal', 'close');
-        });
-      });
-    </script>
 </body>
 </html>
