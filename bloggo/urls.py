@@ -3,10 +3,11 @@ from django.contrib import admin
 
 admin.autodiscover()
 
+#for future: separate out prefix groups so I don't have 'bloggo.blog.views..." in front of all of the blog views
 urlpatterns = patterns('',
      url(r'^$', 'bloggo.blog.views.front_page', name='front_page'),
      url(r'^entry$', 'bloggo.blog.views.entry_list', name='entry_list'),
-     url(r'^entry/(\d)+$', 'bloggo.blog.views.view_entry', name='view_entry'),
+     url(r'^entry/(\d+)$', 'bloggo.blog.views.view_entry', name='view_entry'),
      url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
      url(r'^logout/$', 'django.contrib.auth.views.logout'),
      url(r'^add/$', 'bloggo.blog.views.add_entry', name='add'),

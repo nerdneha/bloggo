@@ -40,7 +40,7 @@ def add_entry(request):
             cd = form.cleaned_data
             title = cd['title']
             body = cd['body']
-            entry_obj = Entry(title=title, body=body)
+: :           entry_obj = Entry(title=title, body=body)
             entry_obj.save()
             return HttpResponseRedirect("/")
     else:
